@@ -56,7 +56,7 @@ jobs:
 
       - name: Push image
         run: |
-          IMAGE_ID=docker.io/${{ github.REPOSITORY }}
+          IMAGE_ID=${{ github.REPOSITORY }}
 
           # Change all uppercase to lowercase
           IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
@@ -72,6 +72,7 @@ jobs:
 
           echo IMAGE_ID=$IMAGE_ID
           echo VERSION=$VERSION
+          echo TAG=$IMAGE_ID:$VERSION
 
           docker tag $IMAGE_NAME $IMAGE_ID:$VERSION
           docker push $IMAGE_ID:$VERSION
