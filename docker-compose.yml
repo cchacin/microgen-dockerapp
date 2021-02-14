@@ -1,8 +1,8 @@
 version: "3.8"
 services:
 
-  microgen-compose:
-    image: cchacin/microgen-compose
+  microgen-dockerapp:
+    image: cchacin/microgen-dockerapp
     volumes:
       - dist_prometheus:/mp/prometheus
       - dist_grafana_provisioning:/mp/grafana/provisioning
@@ -41,7 +41,7 @@ services:
       - 9090:9090
     restart: always
     depends_on:
-      - microgen-compose
+      - microgen-dockerapp
       - application
     links:
       - application
@@ -61,7 +61,7 @@ services:
       - dist_grafana_provisioning:/etc/grafana/provisioning/
       - dist_grafana_dashboards:/var/lib/grafana/dashboards/
     depends_on:
-      - microgen-compose
+      - microgen-dockerapp
     links:
       - prometheus
     networks:
@@ -89,7 +89,7 @@ services:
       - 5050:80
     restart: always
     depends_on:
-      - microgen-compose
+      - microgen-dockerapp
     links:
       - postgres
     networks:
@@ -119,7 +119,7 @@ services:
     volumes:
       - dist_keycloack:/tmp
     depends_on:
-      - microgen-compose
+      - microgen-dockerapp
     ports:
       - 8084:8080
     restart: always
