@@ -95,17 +95,11 @@ services:
     networks:
       - application-network
 
-  application:
-    image: ccchacin/myservice:1.0-SNAPSHOT
-    depends_on:
-      - postgres
+  httpbin:
+    image: kennethreitz/httpbin
     ports:
-      - 9111:8080
+      - 5551:80
     restart: always
-    links:
-      - jaeger
-      - postgres
-      - keycloak
     networks:
       - application-network
 
@@ -123,6 +117,21 @@ services:
     ports:
       - 8084:8080
     restart: always
+    networks:
+      - application-network
+
+  application:
+    image: hello-world:linux # REPLACE-THIS-WITH-YOUR-APPLICATION-IMAGE
+    depends_on:
+      - postgres
+    ports:
+      - 9111:8080
+    restart: always
+    links:
+      - jaeger
+      - postgres
+      - keycloak
+      - httpbin
     networks:
       - application-network
 
