@@ -48,7 +48,7 @@
       }
     ]
   },
-  "description": "Quarkus metrics exposed with Micrometer using the Prometheus format",
+  "description": "Quarkus metrics exposed with Micrometer",
   "editable": true,
   "gnetId": 3308,
   "graphTooltip": 0,
@@ -3331,9 +3331,7 @@
   "tags": [
     "java",
     "micrometer",
-    "quarkus",
-    "prometheus",
-    "jvm"
+    "quarkus"
   ],
   "templating": {
     "list": []
@@ -3369,6 +3367,6 @@
   },
   "timezone": "",
   "title": "Java Quarkus Micrometer",
-  "uid": "wgaUZsEMz",
+  "uid": "yfZ8pyPGk",
   "version": 1
 }
