@@ -16,7 +16,7 @@
   "editable": true,
   "gnetId": 3308,
   "graphTooltip": 0,
-  "id": 4,
+  "iteration": 1613431748370,
   "links": [],
   "panels": [
     {
@@ -375,6 +375,285 @@
         "x": 0,
         "y": 16
       },
+      "id": 41,
+      "panels": [],
+      "repeat": null,
+      "title": "HTTP Metrics",
+      "type": "row"
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 16,
+        "w": 24,
+        "x": 0,
+        "y": 17
+      },
+      "hiddenSeries": false,
+      "id": 38,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": true,
+        "hideEmpty": false,
+        "hideZero": false,
+        "max": true,
+        "min": true,
+        "rightSide": false,
+        "show": true,
+        "sideWidth": null,
+        "total": true,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 1,
+      "maxPerRow": 2,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.4.1",
+      "pointradius": 2,
+      "points": true,
+      "renderer": "flot",
+      "repeat": null,
+      "repeatDirection": "v",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "rate(http_server_requests_seconds_count{outcome=\"SUCCESS\"}[1m])",
+          "interval": "",
+          "legendFormat": "{{method}} {{uri}} {{status}}",
+          "queryType": "randomWalk",
+          "refId": "A"
+        },
+        {
+          "expr": "rate(http_server_requests_seconds_count{outcome=\"REDIRECTION\"}[1m])",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "{{method}} {{uri}} {{status}}",
+          "queryType": "randomWalk",
+          "refId": "B"
+        },
+        {
+          "expr": "rate(http_server_requests_seconds_count{outcome=\"CLIENT_ERROR\"}[1m])",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "{{method}} {{uri}} {{status}}",
+          "queryType": "randomWalk",
+          "refId": "C"
+        },
+        {
+          "expr": "rate(http_server_requests_seconds_count{outcome=\"SERVER_ERROR\"}[1m])",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "{{method}} {{uri}} {{status}}",
+          "queryType": "randomWalk",
+          "refId": "D"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "HTTP Request per Second (1m rate)",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:915",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:916",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "prometheus",
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {},
+          "custom": {},
+          "thresholds": {
+            "mode": "absolute",
+            "steps": []
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 18,
+        "w": 24,
+        "x": 0,
+        "y": 33
+      },
+      "hiddenSeries": false,
+      "id": 42,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": true,
+        "hideEmpty": false,
+        "hideZero": false,
+        "max": true,
+        "min": true,
+        "rightSide": false,
+        "show": true,
+        "sideWidth": null,
+        "total": true,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 1,
+      "maxPerRow": 2,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.4.1",
+      "pointradius": 2,
+      "points": true,
+      "renderer": "flot",
+      "repeatDirection": "v",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "http_server_requests_seconds_max{outcome=\"SUCCESS\"}",
+          "interval": "",
+          "legendFormat": "{{method}} {{uri}} {{status}}",
+          "queryType": "randomWalk",
+          "refId": "A"
+        },
+        {
+          "expr": "http_server_requests_seconds_max{outcome=\"REDIRECTION\"}",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "{{method}} {{uri}} {{status}}",
+          "queryType": "randomWalk",
+          "refId": "B"
+        },
+        {
+          "expr": "http_server_requests_seconds_max{outcome=\"CLIENT_ERROR\"}",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "{{method}} {{uri}} {{status}}",
+          "queryType": "randomWalk",
+          "refId": "C"
+        },
+        {
+          "expr": "http_server_requests_seconds_max{outcome=\"SERVER_ERROR\"}",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "{{method}} {{uri}} {{status}}",
+          "queryType": "randomWalk",
+          "refId": "D"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "HTTP Request Processing Time",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "none",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "collapsed": false,
+      "datasource": null,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 51
+      },
       "id": 32,
       "panels": [],
       "repeat": null,
@@ -400,7 +679,7 @@
         "h": 7,
         "w": 8,
         "x": 0,
-        "y": 17
+        "y": 52
       },
       "hiddenSeries": false,
       "id": 10,
@@ -501,7 +780,7 @@
         "h": 7,
         "w": 8,
         "x": 8,
-        "y": 17
+        "y": 52
       },
       "hiddenSeries": false,
       "id": 11,
@@ -602,7 +881,7 @@
         "h": 7,
         "w": 8,
         "x": 16,
-        "y": 17
+        "y": 52
       },
       "hiddenSeries": false,
       "id": 12,
@@ -691,7 +970,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 24
+        "y": 59
       },
       "id": 33,
       "panels": [],
@@ -718,7 +997,7 @@
         "h": 7,
         "w": 8,
         "x": 0,
-        "y": 25
+        "y": 60
       },
       "hiddenSeries": false,
       "id": 13,
@@ -819,7 +1098,7 @@
         "h": 7,
         "w": 8,
         "x": 8,
-        "y": 25
+        "y": 60
       },
       "hiddenSeries": false,
       "id": 14,
@@ -920,7 +1199,7 @@
         "h": 7,
         "w": 8,
         "x": 16,
-        "y": 25
+        "y": 60
       },
       "hiddenSeries": false,
       "id": 15,
@@ -1027,7 +1306,7 @@
         "h": 7,
         "w": 8,
         "x": 0,
-        "y": 32
+        "y": 67
       },
       "hiddenSeries": false,
       "id": 18,
@@ -1128,7 +1407,7 @@
         "h": 7,
         "w": 8,
         "x": 8,
-        "y": 32
+        "y": 67
       },
       "hiddenSeries": false,
       "id": 16,
@@ -1229,7 +1508,7 @@
         "h": 7,
         "w": 8,
         "x": 16,
-        "y": 32
+        "y": 67
       },
       "hiddenSeries": false,
       "id": 17,
@@ -1318,7 +1597,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 39
+        "y": 74
       },
       "id": 34,
       "panels": [],
@@ -1345,7 +1624,7 @@
         "h": 7,
         "w": 12,
         "x": 0,
-        "y": 40
+        "y": 75
       },
       "hiddenSeries": false,
       "id": 19,
@@ -1446,7 +1725,7 @@
         "h": 7,
         "w": 12,
         "x": 12,
-        "y": 40
+        "y": 75
       },
       "hiddenSeries": false,
       "id": 20,
@@ -1547,7 +1826,7 @@
         "h": 7,
         "w": 12,
         "x": 0,
-        "y": 47
+        "y": 82
       },
       "hiddenSeries": false,
       "id": 21,
@@ -1648,7 +1927,7 @@
         "h": 7,
         "w": 12,
         "x": 12,
-        "y": 47
+        "y": 82
       },
       "hiddenSeries": false,
       "id": 22,
@@ -1749,7 +2028,7 @@
         "h": 7,
         "w": 12,
         "x": 0,
-        "y": 54
+        "y": 89
       },
       "hiddenSeries": false,
       "id": 23,
@@ -1850,7 +2129,7 @@
         "h": 7,
         "w": 12,
         "x": 12,
-        "y": 54
+        "y": 89
       },
       "hiddenSeries": false,
       "id": 24,
@@ -1939,7 +2218,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 61
+        "y": 96
       },
       "id": 35,
       "panels": [],
@@ -1966,7 +2245,7 @@
         "h": 7,
         "w": 12,
         "x": 0,
-        "y": 62
+        "y": 97
       },
       "hiddenSeries": false,
       "id": 25,
@@ -2067,7 +2346,7 @@
         "h": 7,
         "w": 12,
         "x": 12,
-        "y": 62
+        "y": 97
       },
       "hiddenSeries": false,
       "id": 26,
@@ -2156,7 +2435,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 69
+        "y": 104
       },
       "id": 36,
       "panels": [],
@@ -2183,7 +2462,7 @@
         "h": 7,
         "w": 12,
         "x": 0,
-        "y": 70
+        "y": 105
       },
       "hiddenSeries": false,
       "id": 27,
@@ -2284,7 +2563,7 @@
         "h": 7,
         "w": 12,
         "x": 12,
-        "y": 70
+        "y": 105
       },
       "hiddenSeries": false,
       "id": 28,
@@ -2376,10 +2655,104 @@
     "quarkus"
   ],
   "templating": {
-    "list": []
+    "list": [
+      {
+        "allValue": ".*",
+        "current": {
+          "selected": false,
+          "text": "GET",
+          "value": "GET"
+        },
+        "datasource": "prometheus",
+        "definition": "http_server_requests_seconds_count",
+        "description": null,
+        "error": null,
+        "hide": 0,
+        "includeAll": false,
+        "label": "HTTP Method",
+        "multi": false,
+        "name": "METHOD",
+        "options": [],
+        "query": {
+          "query": "http_server_requests_seconds_count",
+          "refId": "StandardVariableQuery"
+        },
+        "refresh": 2,
+        "regex": "/http_server_requests_seconds_count{instance=\".*\",job=\".*\",method=\"(.*)\",outcome=\".*\",status=\".*\",uri=\".*\"}/",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": ".*",
+        "current": {
+          "selected": false,
+          "text": "/q",
+          "value": "/q"
+        },
+        "datasource": "prometheus",
+        "definition": "http_server_requests_seconds_count",
+        "description": null,
+        "error": null,
+        "hide": 0,
+        "includeAll": false,
+        "label": "HTTP Path",
+        "multi": false,
+        "name": "PATH",
+        "options": [],
+        "query": {
+          "query": "http_server_requests_seconds_count",
+          "refId": "StandardVariableQuery"
+        },
+        "refresh": 2,
+        "regex": "/http_server_requests_seconds_count{instance=\".*\",job=\".*\",method=\".*\",outcome=\".*\",status=\".*\",uri=\"(.*)\"}/",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": ".*",
+        "current": {
+          "selected": false,
+          "text": "301",
+          "value": "301"
+        },
+        "datasource": "prometheus",
+        "definition": "http_server_requests_seconds_count",
+        "description": null,
+        "error": null,
+        "hide": 2,
+        "includeAll": false,
+        "label": "HTTP Status Code",
+        "multi": false,
+        "name": "STATUS",
+        "options": [],
+        "query": {
+          "query": "http_server_requests_seconds_count",
+          "refId": "StandardVariableQuery"
+        },
+        "refresh": 2,
+        "regex": "/http_server_requests_seconds_count{instance=\".*\",job=\".*\",method=\".*\",outcome=\".*\",status=\"(.*)\",uri=\".*\"}/",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      }
+    ]
   },
   "time": {
-    "from": "now-30m",
+    "from": "now-15m",
     "to": "now"
   },
   "timepicker": {
@@ -2409,6 +2782,6 @@
   },
   "timezone": "",
   "title": "Java Quarkus Micrometer",
-  "uid": null,
+  "uid": "LafO8EEMk",
   "version": 1
 }
