@@ -16,7 +16,7 @@
   "editable": true,
   "gnetId": 3308,
   "graphTooltip": 0,
-  "iteration": 1613431748370,
+  "iteration": 1613437251880,
   "links": [],
   "panels": [
     {
@@ -2655,104 +2655,10 @@
     "quarkus"
   ],
   "templating": {
-    "list": [
-      {
-        "allValue": ".*",
-        "current": {
-          "selected": false,
-          "text": "GET",
-          "value": "GET"
-        },
-        "datasource": "prometheus",
-        "definition": "http_server_requests_seconds_count",
-        "description": null,
-        "error": null,
-        "hide": 0,
-        "includeAll": false,
-        "label": "HTTP Method",
-        "multi": false,
-        "name": "METHOD",
-        "options": [],
-        "query": {
-          "query": "http_server_requests_seconds_count",
-          "refId": "StandardVariableQuery"
-        },
-        "refresh": 2,
-        "regex": "/http_server_requests_seconds_count{instance=\".*\",job=\".*\",method=\"(.*)\",outcome=\".*\",status=\".*\",uri=\".*\"}/",
-        "skipUrlSync": false,
-        "sort": 0,
-        "tagValuesQuery": "",
-        "tags": [],
-        "tagsQuery": "",
-        "type": "query",
-        "useTags": false
-      },
-      {
-        "allValue": ".*",
-        "current": {
-          "selected": false,
-          "text": "/q",
-          "value": "/q"
-        },
-        "datasource": "prometheus",
-        "definition": "http_server_requests_seconds_count",
-        "description": null,
-        "error": null,
-        "hide": 0,
-        "includeAll": false,
-        "label": "HTTP Path",
-        "multi": false,
-        "name": "PATH",
-        "options": [],
-        "query": {
-          "query": "http_server_requests_seconds_count",
-          "refId": "StandardVariableQuery"
-        },
-        "refresh": 2,
-        "regex": "/http_server_requests_seconds_count{instance=\".*\",job=\".*\",method=\".*\",outcome=\".*\",status=\".*\",uri=\"(.*)\"}/",
-        "skipUrlSync": false,
-        "sort": 0,
-        "tagValuesQuery": "",
-        "tags": [],
-        "tagsQuery": "",
-        "type": "query",
-        "useTags": false
-      },
-      {
-        "allValue": ".*",
-        "current": {
-          "selected": false,
-          "text": "301",
-          "value": "301"
-        },
-        "datasource": "prometheus",
-        "definition": "http_server_requests_seconds_count",
-        "description": null,
-        "error": null,
-        "hide": 2,
-        "includeAll": false,
-        "label": "HTTP Status Code",
-        "multi": false,
-        "name": "STATUS",
-        "options": [],
-        "query": {
-          "query": "http_server_requests_seconds_count",
-          "refId": "StandardVariableQuery"
-        },
-        "refresh": 2,
-        "regex": "/http_server_requests_seconds_count{instance=\".*\",job=\".*\",method=\".*\",outcome=\".*\",status=\"(.*)\",uri=\".*\"}/",
-        "skipUrlSync": false,
-        "sort": 0,
-        "tagValuesQuery": "",
-        "tags": [],
-        "tagsQuery": "",
-        "type": "query",
-        "useTags": false
-      }
-    ]
+    "list": []
   },
   "time": {
-    "from": "now-15m",
+    "from": "now-5m",
     "to": "now"
   },
   "timepicker": {
