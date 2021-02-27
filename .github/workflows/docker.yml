@@ -44,7 +44,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Build image
-        run: docker build . --file Dockerfile --tag ${{ github.REPOSITORY }}
+        run: docker build --no-cache --rm . --file Dockerfile --tag ${{ github.REPOSITORY }}
 
       - name: Login to DockerHub
         if: github.event_name != 'pull_request'
