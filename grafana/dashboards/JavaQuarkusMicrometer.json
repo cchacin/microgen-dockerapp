@@ -53,10 +53,11 @@
   "gnetId": 3308,
   "graphTooltip": 0,
   "id": null,
+  "iteration": 1614388989137,
   "links": [],
   "panels": [
     {
-      "collapsed": true,
+      "collapsed": false,
       "datasource": null,
       "gridPos": {
         "h": 1,
@@ -65,344 +66,342 @@
         "y": 0
       },
       "id": 29,
-      "panels": [
-        {
-          "cacheTimeout": null,
-          "datasource": "${DS_PROMETHEUS}",
-          "description": "The uptime of the Java virtual machine",
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "thresholds"
-              },
-              "custom": {},
-              "mappings": [
-                {
-                  "id": 0,
-                  "op": "=",
-                  "text": "N/A",
-                  "type": 1,
-                  "value": "null"
-                }
-              ],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green",
-                    "value": null
-                  }
-                ]
-              },
-              "unit": "dtdurations"
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 7,
-            "w": 12,
-            "x": 0,
-            "y": 2
-          },
-          "id": 1,
-          "interval": null,
-          "links": [],
-          "maxDataPoints": 100,
-          "options": {
-            "colorMode": "value",
-            "graphMode": "none",
-            "justifyMode": "auto",
-            "orientation": "auto",
-            "reduceOptions": {
-              "calcs": [
-                "lastNotNull"
-              ],
-              "fields": "",
-              "values": false
-            },
-            "text": {},
-            "textMode": "auto"
-          },
-          "pluginVersion": "7.4.1",
-          "targets": [
-            {
-              "expr": "process_uptime_seconds",
-              "format": "time_series",
-              "interval": "",
-              "intervalFactor": 1,
-              "legendFormat": "",
-              "refId": "A",
-              "step": 240
-            }
-          ],
-          "title": "Process Uptime",
-          "type": "stat"
-        },
-        {
-          "cacheTimeout": null,
-          "datasource": "${DS_PROMETHEUS}",
-          "description": "The starttime of the Java virtual machine",
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "thresholds"
-              },
-              "custom": {},
-              "mappings": [
-                {
-                  "id": 0,
-                  "op": "=",
-                  "text": "N/A",
-                  "type": 1,
-                  "value": "null"
-                }
-              ],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green",
-                    "value": null
-                  }
-                ]
-              },
-              "unit": "dateTimeAsUS"
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 7,
-            "w": 12,
-            "x": 12,
-            "y": 2
-          },
-          "id": 2,
-          "interval": null,
-          "links": [],
-          "maxDataPoints": 100,
-          "options": {
-            "colorMode": "value",
-            "graphMode": "none",
-            "justifyMode": "auto",
-            "orientation": "auto",
-            "reduceOptions": {
-              "calcs": [
-                "lastNotNull"
-              ],
-              "fields": "",
-              "values": false
-            },
-            "text": {},
-            "textMode": "auto"
-          },
-          "pluginVersion": "7.4.1",
-          "targets": [
-            {
-              "expr": "process_start_time_seconds * 1000",
-              "format": "time_series",
-              "interval": "",
-              "intervalFactor": 2,
-              "legendFormat": "",
-              "refId": "A",
-              "step": 240
-            }
-          ],
-          "title": "Process Start Time",
-          "type": "stat"
-        }
-      ],
+      "panels": [],
       "repeat": null,
       "title": "Uptime Metrics",
       "type": "row"
     },
     {
-      "collapsed": true,
+      "cacheTimeout": null,
+      "datasource": "${DS_PROMETHEUS}",
+      "description": "The uptime of the Java virtual machine",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {},
+          "mappings": [
+            {
+              "id": 0,
+              "op": "=",
+              "text": "N/A",
+              "type": 1,
+              "value": "null"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "dtdurations"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 0,
+        "y": 1
+      },
+      "id": 1,
+      "interval": null,
+      "links": [],
+      "maxDataPoints": 100,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.4.1",
+      "targets": [
+        {
+          "expr": "process_uptime_seconds",
+          "format": "time_series",
+          "interval": "",
+          "intervalFactor": 1,
+          "legendFormat": "",
+          "refId": "A",
+          "step": 240
+        }
+      ],
+      "title": "Process Uptime",
+      "type": "stat"
+    },
+    {
+      "cacheTimeout": null,
+      "datasource": "${DS_PROMETHEUS}",
+      "description": "The starttime of the Java virtual machine",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {},
+          "mappings": [
+            {
+              "id": 0,
+              "op": "=",
+              "text": "N/A",
+              "type": 1,
+              "value": "null"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "dateTimeAsUS"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 12,
+        "y": 1
+      },
+      "id": 2,
+      "interval": null,
+      "links": [],
+      "maxDataPoints": 100,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.4.1",
+      "targets": [
+        {
+          "expr": "process_start_time_seconds * 1000",
+          "format": "time_series",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "",
+          "refId": "A",
+          "step": 240
+        }
+      ],
+      "title": "Process Start Time",
+      "type": "stat"
+    },
+    {
+      "collapsed": false,
       "datasource": null,
       "gridPos": {
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 1
+        "y": 8
       },
       "id": 30,
-      "panels": [
-        {
-          "cacheTimeout": null,
-          "datasource": "${DS_PROMETHEUS}",
-          "description": "The number of processors available to the Java virtual machine",
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "thresholds"
-              },
-              "custom": {},
-              "mappings": [
-                {
-                  "id": 0,
-                  "op": "=",
-                  "text": "N/A",
-                  "type": 1,
-                  "value": "null"
-                }
-              ],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green",
-                    "value": null
-                  }
-                ]
-              },
-              "unit": "none"
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 7,
-            "w": 8,
-            "x": 0,
-            "y": 3
-          },
-          "id": 3,
-          "interval": null,
-          "links": [],
-          "maxDataPoints": 100,
-          "options": {
-            "colorMode": "value",
-            "graphMode": "none",
-            "justifyMode": "auto",
-            "orientation": "horizontal",
-            "reduceOptions": {
-              "calcs": [
-                "mean"
-              ],
-              "fields": "",
-              "values": false
-            },
-            "text": {},
-            "textMode": "auto"
-          },
-          "pluginVersion": "7.4.1",
-          "targets": [
-            {
-              "expr": "system_cpu_count",
-              "format": "time_series",
-              "interval": "",
-              "intervalFactor": 2,
-              "legendFormat": "",
-              "refId": "A",
-              "step": 240
-            }
-          ],
-          "title": "Processor Count",
-          "type": "stat"
-        },
-        {
-          "aliasColors": {},
-          "bars": false,
-          "dashLength": 10,
-          "dashes": false,
-          "datasource": "${DS_PROMETHEUS}",
-          "description": "The sum of the number of runnable entities queued to available processors and the number of runnable entities running on the available processors averaged over a period of time",
-          "fieldConfig": {
-            "defaults": {
-              "custom": {}
-            },
-            "overrides": []
-          },
-          "fill": 1,
-          "fillGradient": 0,
-          "gridPos": {
-            "h": 7,
-            "w": 16,
-            "x": 8,
-            "y": 3
-          },
-          "hiddenSeries": false,
-          "id": 4,
-          "legend": {
-            "alignAsTable": true,
-            "avg": true,
-            "current": true,
-            "max": true,
-            "min": true,
-            "show": true,
-            "total": false,
-            "values": true
-          },
-          "lines": true,
-          "linewidth": 1,
-          "links": [],
-          "nullPointMode": "null",
-          "options": {
-            "alertThreshold": true
-          },
-          "percentage": false,
-          "pluginVersion": "7.4.1",
-          "pointradius": 5,
-          "points": false,
-          "renderer": "flot",
-          "seriesOverrides": [],
-          "spaceLength": 10,
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
-            {
-              "expr": "system_cpu_usage",
-              "format": "time_series",
-              "interval": "",
-              "intervalFactor": 2,
-              "legendFormat": "",
-              "refId": "A",
-              "step": 20
-            }
-          ],
-          "thresholds": [],
-          "timeFrom": null,
-          "timeRegions": [],
-          "timeShift": null,
-          "title": "Average CPU Load",
-          "tooltip": {
-            "shared": true,
-            "sort": 0,
-            "value_type": "individual"
-          },
-          "type": "graph",
-          "xaxis": {
-            "buckets": null,
-            "mode": "time",
-            "name": null,
-            "show": true,
-            "values": []
-          },
-          "yaxes": [
-            {
-              "format": "short",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            },
-            {
-              "format": "short",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            }
-          ],
-          "yaxis": {
-            "align": false,
-            "alignLevel": null
-          }
-        }
-      ],
+      "panels": [],
       "repeat": null,
       "title": "CPU Metrics",
       "type": "row"
+    },
+    {
+      "cacheTimeout": null,
+      "datasource": "${DS_PROMETHEUS}",
+      "description": "The number of processors available to the Java virtual machine",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {},
+          "mappings": [
+            {
+              "id": 0,
+              "op": "=",
+              "text": "N/A",
+              "type": 1,
+              "value": "null"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 0,
+        "y": 9
+      },
+      "id": 3,
+      "interval": null,
+      "links": [],
+      "maxDataPoints": 100,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "mean"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "7.4.1",
+      "targets": [
+        {
+          "expr": "system_cpu_count",
+          "format": "time_series",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "",
+          "refId": "A",
+          "step": 240
+        }
+      ],
+      "title": "Processor Count",
+      "type": "stat"
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "${DS_PROMETHEUS}",
+      "description": "The sum of the number of runnable entities queued to available processors and the number of runnable entities running on the available processors averaged over a period of time",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 7,
+        "w": 16,
+        "x": 8,
+        "y": 9
+      },
+      "hiddenSeries": false,
+      "id": 4,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": true,
+        "max": true,
+        "min": true,
+        "show": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.4.1",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "system_cpu_usage",
+          "format": "time_series",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "",
+          "refId": "A",
+          "step": 20
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Average CPU Load",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
     },
     {
       "collapsed": true,
@@ -411,7 +410,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 2
+        "y": 16
       },
       "id": 41,
       "panels": [
@@ -440,7 +439,7 @@
             "h": 8,
             "w": 12,
             "x": 0,
-            "y": 4
+            "y": 17
           },
           "hiddenSeries": false,
           "id": 57,
@@ -546,7 +545,7 @@
             "h": 8,
             "w": 12,
             "x": 12,
-            "y": 4
+            "y": 17
           },
           "hiddenSeries": false,
           "id": 59,
@@ -648,7 +647,7 @@
             "h": 16,
             "w": 24,
             "x": 0,
-            "y": 12
+            "y": 25
           },
           "hiddenSeries": false,
           "id": 38,
@@ -785,7 +784,7 @@
             "h": 18,
             "w": 24,
             "x": 0,
-            "y": 28
+            "y": 41
           },
           "hiddenSeries": false,
           "id": 42,
@@ -908,7 +907,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 3
+        "y": 17
       },
       "id": 44,
       "panels": [
@@ -930,7 +929,7 @@
             "h": 8,
             "w": 20,
             "x": 0,
-            "y": 1
+            "y": 18
           },
           "hiddenSeries": false,
           "id": 46,
@@ -1056,7 +1055,7 @@
             "h": 8,
             "w": 4,
             "x": 20,
-            "y": 1
+            "y": 18
           },
           "id": 48,
           "options": {
@@ -1110,7 +1109,7 @@
             "h": 8,
             "w": 12,
             "x": 0,
-            "y": 9
+            "y": 26
           },
           "hiddenSeries": false,
           "id": 53,
@@ -1209,7 +1208,7 @@
             "h": 8,
             "w": 12,
             "x": 12,
-            "y": 9
+            "y": 26
           },
           "hiddenSeries": false,
           "id": 51,
@@ -1324,7 +1323,7 @@
             "h": 8,
             "w": 12,
             "x": 0,
-            "y": 17
+            "y": 34
           },
           "hiddenSeries": false,
           "id": 50,
@@ -1438,7 +1437,7 @@
             "h": 8,
             "w": 12,
             "x": 12,
-            "y": 17
+            "y": 34
           },
           "hiddenSeries": false,
           "id": 55,
@@ -1544,7 +1543,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 4
+        "y": 18
       },
       "id": 32,
       "panels": [
@@ -1567,7 +1566,7 @@
             "h": 7,
             "w": 8,
             "x": 0,
-            "y": 5
+            "y": 19
           },
           "hiddenSeries": false,
           "id": 10,
@@ -1668,7 +1667,7 @@
             "h": 7,
             "w": 8,
             "x": 8,
-            "y": 5
+            "y": 19
           },
           "hiddenSeries": false,
           "id": 11,
@@ -1769,7 +1768,7 @@
             "h": 7,
             "w": 8,
             "x": 16,
-            "y": 5
+            "y": 19
           },
           "hiddenSeries": false,
           "id": 12,
@@ -1863,7 +1862,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 5
+        "y": 19
       },
       "id": 33,
       "panels": [
@@ -1886,7 +1885,7 @@
             "h": 7,
             "w": 8,
             "x": 0,
-            "y": 6
+            "y": 20
           },
           "hiddenSeries": false,
           "id": 13,
@@ -1987,7 +1986,7 @@
             "h": 7,
             "w": 8,
             "x": 8,
-            "y": 6
+            "y": 20
           },
           "hiddenSeries": false,
           "id": 14,
@@ -2088,7 +2087,7 @@
             "h": 7,
             "w": 8,
             "x": 16,
-            "y": 6
+            "y": 20
           },
           "hiddenSeries": false,
           "id": 15,
@@ -2195,7 +2194,7 @@
             "h": 7,
             "w": 8,
             "x": 0,
-            "y": 13
+            "y": 27
           },
           "hiddenSeries": false,
           "id": 18,
@@ -2296,7 +2295,7 @@
             "h": 7,
             "w": 8,
             "x": 8,
-            "y": 13
+            "y": 27
           },
           "hiddenSeries": false,
           "id": 16,
@@ -2397,7 +2396,7 @@
             "h": 7,
             "w": 8,
             "x": 16,
-            "y": 13
+            "y": 27
           },
           "hiddenSeries": false,
           "id": 17,
@@ -2491,7 +2490,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 6
+        "y": 20
       },
       "id": 34,
       "panels": [
@@ -2514,7 +2513,7 @@
             "h": 7,
             "w": 12,
             "x": 0,
-            "y": 7
+            "y": 108
           },
           "hiddenSeries": false,
           "id": 19,
@@ -2615,7 +2614,7 @@
             "h": 7,
             "w": 12,
             "x": 12,
-            "y": 7
+            "y": 108
           },
           "hiddenSeries": false,
           "id": 20,
@@ -2716,7 +2715,7 @@
             "h": 7,
             "w": 12,
             "x": 0,
-            "y": 14
+            "y": 115
           },
           "hiddenSeries": false,
           "id": 21,
@@ -2817,7 +2816,7 @@
             "h": 7,
             "w": 12,
             "x": 12,
-            "y": 14
+            "y": 115
           },
           "hiddenSeries": false,
           "id": 22,
@@ -2918,7 +2917,7 @@
             "h": 7,
             "w": 12,
             "x": 0,
-            "y": 21
+            "y": 122
           },
           "hiddenSeries": false,
           "id": 23,
@@ -3019,7 +3018,7 @@
             "h": 7,
             "w": 12,
             "x": 12,
-            "y": 21
+            "y": 122
           },
           "hiddenSeries": false,
           "id": 24,
@@ -3113,7 +3112,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 7
+        "y": 21
       },
       "id": 35,
       "panels": [
@@ -3334,7 +3333,28 @@
     "quarkus"
   ],
   "templating": {
-    "list": []
+    "list": [
+      {
+        "current": {
+          "selected": false,
+          "text": "prometheus",
+          "value": "prometheus"
+        },
+        "description": null,
+        "error": null,
+        "hide": 2,
+        "includeAll": false,
+        "label": null,
+        "multi": false,
+        "name": "DS_PROMETHEUS",
+        "options": [],
+        "query": "prometheus",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "type": "datasource"
+      }
+    ]
   },
   "time": {
     "from": "now-5m",
