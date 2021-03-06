@@ -2,7 +2,7 @@ version: "3.8"
 services:
 
   microgen-dockerapp:
-    image: cchacin/microgen-dockerapp
+    image: cchacin/microgen-dockerapp:latest
     volumes:
       - dist_prometheus:/mp/prometheus
       - dist_grafana_provisioning:/mp/grafana/provisioning
@@ -108,9 +108,9 @@ services:
     environment:
       KEYCLOAK_USER: admin
       KEYCLOAK_PASSWORD: admin
-      KEYCLOAK_IMPORT: /mp/keycloack/realms.json
+      KEYCLOAK_IMPORT: /var/log/quarkus-realm.json
     volumes:
-      - dist_keycloack:/mp/keycloack
+      - dist_keycloack:/var/log
     depends_on:
       - microgen-dockerapp
     ports:
