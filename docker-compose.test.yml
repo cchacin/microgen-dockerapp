@@ -104,18 +104,17 @@ services:
       - application-network
 
   keycloak:
-    image: quay.io/keycloak/keycloak:12.0.2
+    image: quay.io/keycloak/keycloak:12.0.4
     environment:
-      DB_VENDOR: h2
-      KEYCLOAK_PASSWORD: admin
       KEYCLOAK_USER: admin
-      KEYCLOAK_IMPORT: /tmp/realms.json
+      KEYCLOAK_PASSWORD: admin
+      KEYCLOAK_IMPORT: /mp/keycloack/realms.json
     volumes:
-      - dist_keycloack:/tmp
+      - dist_keycloack:/mp/keycloack
     depends_on:
       - microgen-dockerapp
     ports:
-      - 8084:8080
+      - 8080:8080
     restart: always
     networks:
       - application-network
