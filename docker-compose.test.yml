@@ -16,20 +16,22 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
       - /tmp/portainer_password:/tmp/portainer_password
     command: -H unix:///var/run/docker.sock --no-auth
-    labels:
-      - traefik.http.routers.portainer.rule=Host(`portainer.localhost`)
-      - traefik.http.routers.portainer.service=portainer
-      - traefik.http.services.portainer.loadbalancer.server.port=9000
-      - traefik.docker.network=inbound
+    ports:
+      - 9000:9000
 
   jaeger:
     image: jaegertracing/all-in-one:1.21.0
     networks:
       - inbound
     labels:
+      - traefik.http.routers.jaegerui.rule=Host(`jaegerui.localhost`)
+      - traefik.http.routers.jaegerui.service=jaegerui
+      - traefik.http.services.jaegerui.loadbalancer.server.port=16686
+
       - traefik.http.routers.jaeger.rule=Host(`jaeger.localhost`)
       - traefik.http.routers.jaeger.service=jaeger
-      - traefik.http.services.jaeger.loadbalancer.server.port=16686
+      - traefik.http.services.jaeger.loadbalancer.server.port=14268
+
       - traefik.docker.network=inbound
 
   prometheus:
@@ -140,7 +142,7 @@ services:
       - traefik.docker.network=inbound
 
   application:
-    image: hello-world:linux # REPLACE-THIS-WITH-YOUR-APPLICATION-IMAGE
+    image: traefik/whoami:v1.6.0 # REPLACE-THIS-WITH-YOUR-APPLICATION-IMAGE
     depends_on:
       - postgres
     restart: always
@@ -151,24 +153,35 @@ services:
       - httpbin
     networks:
       - inbound
+    labels:
+      - traefik.http.routers.application.rule=Host(`application.localhost`)
+      - traefik.http.routers.application.service=application
+      - traefik.http.services.application.loadbalancer.server.port=80
+      - traefik.docker.network=inbound
 
   traefik:
     image: library/traefik:v2.4
-    command: >
-      --log.level=DEBUG
-      --api.insecure=true
-      --metrics.prometheus=true
-      --metrics.prometheus.buckets=0.1,0.3,1.2,5.0
-      --providers.docker=true
+    command:
+      - --log.level=DEBUG
+      - --api.insecure=true
+      - --metrics.prometheus=true
+      - --metrics.prometheus.buckets=0.1,0.3,1.2,5.0
+      - --providers.docker=true
+      - --tracing.jaeger=true
+      - --tracing.jaeger.collector.endpoint=http://jaeger:14268/api/traces?format=jaeger.thrift
     networks:
       - traefik
       - inbound
     volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
+      - /var/run/docker.sock:/var/run/docker.sock:ro
     ports:
       - 80:80
-      - 443:443
       - 8080:8080
+    labels:
+      - traefik.http.routers.traefik.rule=Host(`traefik.localhost`)
+      - traefik.http.routers.traefik.service=traefik
+      - traefik.http.services.traefik.loadbalancer.server.port=8080
+      - traefik.docker.network=inbound
 
 networks:
   inbound:
