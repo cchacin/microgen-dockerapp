@@ -142,7 +142,7 @@ services:
       - traefik.docker.network=inbound
 
   application:
-    image: traefik/whoami:v1.6.0 # REPLACE-THIS-WITH-YOUR-APPLICATION-IMAGE
+    image: hello-world:linux # REPLACE-THIS-WITH-YOUR-APPLICATION-IMAGE
     depends_on:
       - postgres
     restart: always
