@@ -16,8 +16,13 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
       - /tmp/portainer_password:/tmp/portainer_password
     command: -H unix:///var/run/docker.sock --no-auth
-    ports:
-      - 9000:9000
+    networks:
+      - inbound
+    labels:
+      - traefik.http.routers.portainer.rule=Host(`portainer.localhost`)
+      - traefik.http.routers.portainer.service=portainer
+      - traefik.http.services.portainer.loadbalancer.server.port=9000
+      - traefik.docker.network=inbound
 
   jaeger:
     image: jaegertracing/all-in-one:1.21.0
@@ -84,9 +89,21 @@ services:
     networks:
       - inbound
     labels:
-      - traefik.http.routers.postgres.rule=Host(`postgres.localhost`)
-      - traefik.http.routers.postgres.service=postgres
-      - traefik.http.services.postgres.loadbalancer.server.port=5432
+      - traefik.tcp.routers.postgres.rule=HostSNI(`postgres.localhost`)
+      - traefik.tcp.routers.postgres.service=postgres
+      - traefik.tcp.services.postgres.loadbalancer.server.port=5432
+      - traefik.docker.network=inbound
+
+  pgexporter:
+    image: prometheuscommunity/postgres-exporter:v0.9.0
+    environment:
+      - DATA_SOURCE_NAME=postgresql://postgres:postgres@postgres:5432/postgres?sslmode=disable
+    networks:
+      - inbound
+    labels:
+      - traefik.http.routers.pgexporter.rule=Host(`pgexporter.localhost`)
+      - traefik.http.routers.pgexporter.service=pgexporter
+      - traefik.http.services.pgexporter.loadbalancer.server.port=9187
       - traefik.docker.network=inbound
 
   pgadmin:
