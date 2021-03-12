@@ -98,6 +98,8 @@ services:
     image: prometheuscommunity/postgres-exporter:v0.9.0
     environment:
       - DATA_SOURCE_NAME=postgresql://postgres:postgres@postgres:5432/postgres?sslmode=disable
+    ports:
+      - 9187:9187
     networks:
       - inbound
     labels:
