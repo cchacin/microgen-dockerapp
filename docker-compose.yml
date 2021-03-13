@@ -160,24 +160,6 @@ services:
       - traefik.http.services.keycloak.loadbalancer.server.port=8080
       - traefik.docker.network=inbound
 
-  application:
-    image: hello-world:linux # REPLACE-THIS-WITH-YOUR-APPLICATION-IMAGE
-    depends_on:
-      - postgres
-    restart: always
-    links:
-      - jaeger
-      - postgres
-      - keycloak
-      - httpbin
-    networks:
-      - inbound
-    labels:
-      - traefik.http.routers.application.rule=Host(`application.localhost`)
-      - traefik.http.routers.application.service=application
-      - traefik.http.services.application.loadbalancer.server.port=80
-      - traefik.docker.network=inbound
-
   traefik:
     image: library/traefik:v2.4
     command:
@@ -199,6 +181,24 @@ services:
       - traefik.http.routers.traefik.rule=Host(`traefik.localhost`)
       - traefik.http.routers.traefik.service=traefik
       - traefik.http.services.traefik.loadbalancer.server.port=8080
+      - traefik.docker.network=inbound
+
+  application:
+    image: hello-world:linux # REPLACE-THIS-WITH-YOUR-APPLICATION-IMAGE
+    depends_on:
+      - postgres
+    restart: always
+    links:
+      - jaeger
+      - postgres
+      - keycloak
+      - httpbin
+    networks:
+      - inbound
+    labels:
+      - traefik.http.routers.application.rule=Host(`application.localhost`)
+      - traefik.http.routers.application.service=application
+      - traefik.http.services.application.loadbalancer.server.port=80
       - traefik.docker.network=inbound
 
 networks:
